@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="../../resources/static/styles/style.css" rel="stylesheet">
+    <title>Пользователи</title>
+<!--    <style>-->
+<!--        table {-->
+<!--            width: 300px; /* Ширина таблицы */-->
+<!--            border: 1px solid black; /* Рамка вокруг таблицы */-->
+<!--            margin: auto; /* Выравниваем таблицу по центру окна  */-->
+<!--            font-size: 14pt;-->
+<!--        }-->
+
+<!--        td {-->
+<!--            border: 1px solid black;-->
+<!--            text-align: center; /* Выравниваем текст по центру ячейки */-->
+<!--            padding: 3px;-->
+<!--        }-->
+
+<!--        th {-->
+<!--            border: 1px solid black;-->
+<!--            text-align: center; /* Выравниваем текст по центру ячейки */-->
+<!--            padding: 3px;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>User id</th>
+                <th>Username</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:utext="${user.getId()}"></td>
+                <td th:utext="${user.getUsername()}"></td>
+                <td th:utext="${user.getFirstName()}"></td>
+                <td th:utext="${user.getLastName()}"></td>
+                <td th:utext="${user.getEmail()}"></td>
+                <td th:utext="${user.getAge()}"></td>
+                <td>
+                    <a href="/">edit </a>
+                    <a href="/">delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
