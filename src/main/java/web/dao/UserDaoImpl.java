@@ -16,7 +16,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User findUserById(long id) {
-        return entityManager.find(User.class, id);
+        User user = entityManager.find(User.class, id);
+        return (user != null) ? user : new User();
     }
 
     @Override
@@ -35,8 +36,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {
-        return entityManager.createQuery("FROM User").getResultList();
+        return entityManager.createQuery("FROM User", User.class).getResultList();
     }
 }
